@@ -79,4 +79,4 @@ if __name__ == "__main__":
         pump(on=True)
         time.sleep(30)
         pump(on=False)
-        speak_random([result['name'])
+        speak_random(result['name'])
