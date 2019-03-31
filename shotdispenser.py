@@ -45,8 +45,8 @@ def process_id_card(data, mag):
 
 def speak(text):
     speech = gTTS(text=text)
-    speech.save("audio/speech.mp3")
-    os.system("mpg321 audio/speech.mp3")
+    speech.save("speech.mp3")
+    os.system("mpg321 speech.mp3")
 
 if __name__ == "__main__":
     setup_logging()
