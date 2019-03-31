@@ -65,6 +65,8 @@ if __name__ == "__main__":
             continue
         lcd.lcd_display_string(result['name'])
         lcd.lcd_display_string(result['pid'], line=2)
+        speak(result['name'] + ' your shot is on the way!')
         pump(on=True)
         time.sleep(30)
         pump(on=False)
+        speak(result['name'] + ' your shot is ready!')
