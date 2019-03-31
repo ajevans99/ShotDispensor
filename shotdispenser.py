@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-rom magstripe import MagStripe, MagStripeError
+from magstripe import MagStripe, MagStripeError
 from lcddriver import LCD
 import RPi.GPIO as GPIO
 import time
