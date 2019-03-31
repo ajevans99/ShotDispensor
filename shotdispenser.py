@@ -2,8 +2,10 @@ from magstripe import MagStripe, MagStripeError
 from lcddriver import LCD
 import RPi.GPIO as GPIO
 import time
+import os
 import sys
 import logging
+from gtts import gTTS
 
 RELAY_PIN  = 11 # BOARD
 
@@ -41,12 +43,18 @@ def process_id_card(data, mag):
         logging.error(e)
     return None
 
+def speak(text):
+    speech = gTTS(text=text)
+    speech.save("audio/speech.mp3")
+    os.system("mpg321 audio/speech.mp3")
+
 if __name__ == "__main__":
     setup_logging()
     setup_gpio()
     pump(on=False)
     lcd = LCD()
     mag = MagStripe()
+    speak('Hello! Shot dispensor ready!')
     while True:
         lcd.lcd_clear()
         lcd.lcd_display_string('Scan your MSU ID')
